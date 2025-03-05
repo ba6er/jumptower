@@ -102,15 +102,14 @@ func (p *Player) UpdateCollision(pJump bool, plats *[9]Platform, lastNum uint64,
 			score = math.Pow(scoreAdd, 1 + (scoreAdd) / 5) * 10
 			newNum = plats[i].Num
 		}
-		p.Pos.Y = plats[i].Pos.Y
-		p.Vel.Y = 0
-		p.CanJump = true
-		foundPlat = true
-
 		if p.CanJump == false {
 			sound["land"].Rewind()
 			sound["land"].Play()
 		}
+		p.Pos.Y = plats[i].Pos.Y
+		p.Vel.Y = 0
+		p.CanJump = true
+		foundPlat = true
 	}
 
 	if foundPlat == false {
